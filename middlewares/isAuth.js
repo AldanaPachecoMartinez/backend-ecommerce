@@ -15,7 +15,7 @@ function checkToken(req, res, next) {
             return responseCreator(res, 403, `Token inválido, permisos denegados`, false)
         }
         req.user = payload
-        console.log(payload)
+        
         next();
     })
 }

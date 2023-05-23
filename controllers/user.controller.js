@@ -3,6 +3,7 @@ const User = require("../schemas/user.schema");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
+const { response } = require("../app");
 require('dotenv').config();
 const secret = process.env.SECRET;
 
@@ -32,11 +33,11 @@ async function addUsers(req, res) {
         userToAdd.password = passHash;
         const userSaved = await userToAdd.save();
         userSaved.password = undefined;
-        return responseCreator(res, 201, `El usuario ha sido creado correctamente`, true, {userSaved} );
+        return responseCreator(res, 201, `El usuario se registró correctamente`, true, {userSaved} );
     } catch (error) {
         console.log(error)
         if(error.code === 11000){
-        return responseCreator(res, 400, `El email ya se encuentra en uso`, false)}
+        return responseCreator(res, 400, `El email ya existe`, false)}
         return responseCreator(res,400, `No se pudo crear el usuario`, false)
     }
 }
@@ -62,8 +63,24 @@ async function loginUser(req,res) {
     }
 }
 
+async function deleteUser(req, res) {
+    try {
+        const id = req.params.paramId;
+
+        const userDeleted = await User.findByIdAndDelete(id);
+
+        if(!userDeleted) return responseCreator(res,404,`No se encontró el usuario a borrar`, false)
+
+        return responseCreator(res, 200, `El usuario fue borrado correctamente`,true, {name: userDeleted.fullName, email: userDeleted.email});
+
+    } catch (error) {
+        console.log(error);
+        return responseCreator(res,400,`No se pudo borrar el usuario`, false)}
+    }
+
 module.exports = {
     getUsers,
     addUsers,
-    loginUser
+    loginUser,
+    deleteUser
 }
