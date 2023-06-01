@@ -9,7 +9,9 @@ api.get('/users', checkToken, checkUserRole, userController.getUsers);
 api.post('/users', userController.addUsers);
 api.post('/login', userController.loginUser);
 
-api.delete('/users/paramId', checkToken, checkUserRole, userController.deleteUser)
+api.delete('/users/:paramId', checkToken, checkUserRole, userController.deleteUser);
+
+api.put('/users/:id', checkToken, checkUserRole, userController.updateUserByAdmin);
 
 
 module.exports = api;

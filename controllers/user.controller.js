@@ -3,15 +3,13 @@ const User = require("../schemas/user.schema");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
-const { response } = require("../app");
 require('dotenv').config();
 const secret = process.env.SECRET;
 
 async function getUsers(req, res) {
-    const page = req.query.page; 
-    const limit =  5; 
+
     try {
-        const findUsers = await User.find({}, { password: 0 }).collation({ locale:  'es' }).sort({age: -1}).limit(limit).skip(page * limit);
+        const findUsers = await User.find({}, { password: 0 }).collation({ locale:  'es' }).sort({age: -1})
 
         const totalUsers = await User.countDocuments();
 
@@ -78,9 +76,26 @@ async function deleteUser(req, res) {
         return responseCreator(res,400,`No se pudo borrar el usuario`, false)}
     }
 
+async function updateUserByAdmin(req, res) {
+    try {
+        const id = req.params.id;
+
+        const userUpdated = await User.findByIdAndUpdate(id,req.body);
+
+        if(!userUpdated) return responseCreator(res,404,`No se encontró el usuario a editar`, false)
+
+        return responseCreator(res, 200, `El usuario fue actualizado correctamente`,true, {name: userUpdated.fullName, email: userUpdated.email});
+
+    } catch (error) {
+        console.log(error);
+        return responseCreator(res,400,`No se pudo editar el usuario`, false)
+    }
+}
+
 module.exports = {
     getUsers,
     addUsers,
     loginUser,
-    deleteUser
+    deleteUser, 
+    updateUserByAdmin
 }
