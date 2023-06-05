@@ -23,6 +23,19 @@ async function getUsers(req, res) {
     
 }
 
+async function getUserById(req, res) {
+    try {
+        const id = req.user._id;
+        const userToSearch = await User.findById(id, {password: 0});
+    
+        return responseCreator(res, 200, `Usuario obtenido correctamente`, true, {userToSearch})
+        
+    } catch (error) {
+        console.log(error)
+        return responseCreator(res, 400, `No se encontró el usuario`, false)
+    }
+}
+
 async function addUsers(req, res) {
     try {
         const userToAdd = new User(req.body);
@@ -92,10 +105,53 @@ async function updateUserByAdmin(req, res) {
     }
 }
 
+async function updateUserByUser(req, res) {
+    try {
+
+        const id = req.user._id;
+
+        const update = req.body;
+
+        if(update.password) {
+            const hash = await bcrypt.hash(update.password, saltRounds);
+
+            update.password = hash;
+        }
+        
+        const userUpdated = await User.findByIdAndUpdate(id, update, { new: true })
+
+        if(!userUpdated) return responseCreator(res,404,`No se encontró el usuario a editar`, false)
+
+        return responseCreator(res, 200, `El usuario fue editado correctamente`,true, {name: userUpdated.fullName, email: userUpdated.email});
+
+    } catch (error) {
+        console.log(error)
+        return responseCreator(res,400,`No se pudo editar el usuario`, false)
+    }
+}
+
+async function setUserImage(req, res) {
+    try {
+        const id = req.user._id;
+
+        const userUpdated = await User.findByIdAndUpdate(id,req.user);
+
+        if(!userUpdated) return responseCreator(res,404,`No se encontró el usuario a editar`, false)
+
+        return responseCreator(res, 200, `Se cargó la imagen del usuario correctamente.`,true, {name: userUpdated.fullName, email: userUpdated.email});
+
+    } catch (error) {
+        console.log(error);
+        return responseCreator(res,400,`No se pudo cargar la imagen del usuario`,false)}
+}
+
 module.exports = {
     getUsers,
+    getUserById,
     addUsers,
     loginUser,
     deleteUser, 
-    updateUserByAdmin
+    updateUserByAdmin,
+    updateUserByUser,
+    setUserImage
 }
