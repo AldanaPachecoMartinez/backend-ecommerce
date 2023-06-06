@@ -11,9 +11,11 @@ const storage = multer.diskStorage({
   filename: (req, file, callback) => {
     const fileExt = file.originalname.split('.').at(-1);
     const newName = `${uuid()}.${fileExt}`;
+    console.log(req.body)
     if(req.body.images){
-      req.body.images.push(newName)
-
+      let newImage = (typeof(req.body.images)==="string") ? JSON.parse(req.body.images) : req.body.images
+      newImage.push(newName)
+      req.body.images= newImage
     }else{
     req.body.images=[newName]
     req.body.thumbnail = newName;
@@ -38,16 +40,22 @@ const uploadMulter = multer({
     fs.readdir('./public/upload/products',(err,files)=>{
       files.forEach((img,i)=>{
         if(img===imgToDelete){
-          console.log(img,imgToDelete)
-          fs.unlinkSync(`./public/upload/products/${img}`)
-          responseCreator(res,200,'Se eliminó la imagen con éxito',true)
+          fs.unlinkSync(`./public/upload/products/${img}`, (err)=>{
+            if(err) {
           return
-        }else{
+            }else{
+              return
+            }
+          })
+        }else {
+        return
+
         }
       })
-      responseCreator(res,400,'No se encontro la imagen a eliminar',false)
     })
+    responseCreator(res,200,'Se eliminó la imagen con éxito',true)
 
+return
   }
 
   const userStorage = multer.diskStorage({

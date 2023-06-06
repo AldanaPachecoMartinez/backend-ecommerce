@@ -11,14 +11,21 @@ const secret = process.env.SECRET;
 async function getProducts(req, res) {
     const page = req.query.page;  
     const limit =  15; 
-    const query = { $or: [
+    let query = { $or: [
         { name: { $regex: `.*${req.query.search}.*`, $options: 'i' } },
         { category: { $regex: `.*${req.query.search}.*`, $options: 'i' } },
         { resume: { $regex: `.*${req.query.search}.*`, $options: 'i' } },
         { description: { $regex: `.*${req.query.search}.*`, $options: 'i' } }
-
-
     ]}
+
+    if(req.query.favorites){
+        query = { favorite: true }
+    }
+
+    if(req.query.category){
+        query = { category: { $regex: `.*${req.query.category}.*`, $options: 'i' } }
+    }
+
     try {
         const findProducts = await Product.find(
         query
@@ -77,7 +84,7 @@ async function updateProducts(req, res) {
 
         if(!productUpdated) return responseCreator(res,404,`No se encontró el producto a editar`, false)
 
-        return responseCreator(res, 200, `El producto fue actualizado correctamente`,true, {name: productUpdated.name});
+        return responseCreator(res, 200, `El producto fue actualizado correctamente`,true, {productUpdated,newData:req.body});
 
     } catch (error) {
         console.log(error);
@@ -85,9 +92,26 @@ async function updateProducts(req, res) {
     }
 }
 
+async function getProductById(req,res){
+    try {
+        const id = req.params.id;
+
+        const product = await Product.findById(id);
+
+        if(!product) return responseCreator(res,404,`No se encontró el producto.`, false)
+
+        return responseCreator(res, 200, `El producto se encontro correctamente`,true, {product});
+
+    } catch (error) {
+        console.log(error);
+        return responseCreator(res,400,`No se pudo encontrar el producto`, false)
+    }
+}
+
 module.exports = {
     getProducts,
     addProducts,
     deleteProducts,
-    updateProducts
+    updateProducts,
+    getProductById
 }
