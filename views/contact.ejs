@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('partials/head', {tabTitle : 'Contacto' }) %>
+<body>
+    <header id="header"></header>
+    
+    <main class="main-contact">
+        <div class="contact-section">
+
+            <div class="contact-section__formular">
+                <h2 class="subtitle-contact">Contáctanos!</h2>
+                <form class="form-container-contact">
+                    <div class="contact-section__formular--fullname">
+                        <label for="idInputName" >Nombre y Apellido</label><br>
+                        <input type="text" name="fullName" id="idInputName" maxlength="60" minlength="6" required autofocus class="contact-section__input">
+                    </div>
+                    <div class="contact-section__formular--email">
+                        <label for="emailInput">E-mail</label><br>
+                        <input type="email" name="email" id="emailInput" minlength="8" maxlength="50" placeholder="example@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required class="contact-section__input">
+                    </div>
+                    <div class="contact-section__formular--consulta">
+                        <p>Consulta</p>
+                        <textarea name="consulta" id="" cols="45" rows="8" placeholder="Escriba aquí su consulta" maxlength="255" minlength="4" class="contact-section__input"></textarea>
+                    </div>
+                    <div class="contact-section__btn-enviar">
+                        <button class="contact-section__formular--btn">Enviar</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="contact-section__ubication">
+                <h2>Visítanos!</h2>
+
+                <div class="contact-section__ubication--map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13614.636703304755!2d-64.19221327632648!3d-31.451048589644802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a2e234b6d23f%3A0xb9f17de401ae729b!2sPaseo%20del%20Jockey!5e0!3m2!1ses-419!2sar!4v1672351218062!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            
+        </div>
+        
+        <div class="contact-footer">
+        <a href="/" class="contact-footer__btn">HOME</a>
+        </div>
+        
+    </main>
+
+
+    <footer id="footer"></footer>
+    <script src="/js/header&footer.js"></script>
+    <script src="/js/header.js"></script>
+    <script src="/js/orders.js"></script>
+
+</body>
+</html>

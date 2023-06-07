@@ -1,0 +1,235 @@
+#header{position: sticky;
+width: 100%;
+top: 0;
+z-index: 200;}
+
+.navbar{
+height: 50px;
+background-color: $color-bg-secondary-light;
+display: flex;
+align-items: center;
+
+
+
+&__logo {height: 42px;
+margin:0 .5rem;}
+
+&__menu-label{
+color: $color-bg-secondary-light;
+height: 42px;
+width: 42px;
+margin-right: 4px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+&__menu-btn{ position: absolute;
+right: 0;
+top: 0;
+bottom: 0;
+opacity: 0;
+    }
+
+&__menu-btn:checked ~ &__nav-links-container {
+    height: calc(100vh - 50px);
+    z-index: 150;
+    font-size: 1.4rem;
+    background-color: rgb(227, 227, 227,95%);
+    }
+
+
+&__menu-icon {
+    height: 2px;
+    background-color: $color-text;
+    width: 18px;
+    position: relative;
+
+        &::after, &::before {
+        content: '';
+        height: 2px;
+        background-color:$color-text;
+        position: absolute;
+        width: 100%;
+        transition:  all .2s ease-out;
+        }
+
+        &::after {
+            top: 5px;
+        }
+
+        &::before {
+            top:-5px;
+        }
+    }
+
+&__menu-btn:checked ~ &__menu-label &__menu-icon {
+    background: transparent;
+
+    &::after {
+        transform: rotate(45deg);
+    top:0;
+    }
+
+    &::before{
+        transform: rotate(-45deg);
+    top: 0;
+        }
+    } 
+
+&__nav-links-container {
+list-style: none;
+position: absolute;
+top:50px;
+background-color: $color-bg-secondary-light;
+width: 100%;
+height: 0;
+overflow: hidden;
+transition:all .3s ease-out;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+z-index: 15;
+}
+
+
+
+&__nav-item{padding: 1.25rem 1rem;
+    width: 40%;
+    text-align: center;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid $color-text;
+    } 
+}
+
+&__nav-link {
+    color: $color-text;
+    cursor: pointer;
+    }
+} 
+
+.user-navbar{
+    margin-left: auto;
+    color: $color-text-light;
+    display: flex;
+    gap: .55rem;
+    align-items: center;
+    padding: 0 1rem;
+    
+
+    &__user-avatar{width: 35px;
+    height: 35px;
+    margin-right: 0;
+    cursor: pointer;
+    border-radius: 60px;
+    object-fit: cover;
+    }
+
+    &__cart-icon-container{font-size: 1.5rem;
+    position: relative;
+    background-color: transparent;
+    border: none;
+    color: $color-table;
+    cursor: pointer;}
+
+    &__cart-badge{position: absolute;
+    top: -8px;
+    right: -8px ;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: darkred ;
+    color: white;
+    font-size: .5rem;
+    text-align: center;}
+}
+.menu-user{
+    display: none;
+
+    &__container{
+        text-align: center;
+    }
+
+    &__item{
+        list-style-type: none;
+        margin: 1rem 0;
+        border-bottom: 1.5px solid $color-bg-primary-dark;
+        width: 100%;
+            &:hover{
+                transform: scale(1.03);
+                transition: .2s ease-in;
+            }
+    }
+
+    &__link{
+        margin-bottom: .5rem;
+
+        &:visited{
+            color: rgb(54, 54, 54);;
+        }
+    }
+}
+
+.menu-user.visible{
+    display: flex;
+    background-color: rgba(210, 210, 210, 0.8);
+    transition: all .4s ease-in;
+    padding: .7rem;
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    width: 25%;
+    height: auto;
+    text-align: center;
+    justify-content: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.close-menu{
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    left: 20px;
+    cursor: pointer;
+    color: $color-table;
+    font-size: 1rem;
+    &:hover{
+        transform: scale(1.03);
+        transition: .2s ease-in;
+        font-weight: 700;
+    }
+}
+
+.icon-menu{
+    color: $color-text-light;
+    margin-right: .3rem;
+}
+
+@media screen and (min-width: 600px) {
+    .navbar {
+    &__menu-label, &__menu-btn{
+        display: none;    
+    }
+
+    &__nav-links-container {
+    position: static;
+    flex-direction: row;
+    height: 100% !important;
+    width: auto;
+        }
+
+    }
+
+    .navbar__nav-item{border-bottom: none !important;
+    text-align: center;
+
+    &:last-child{padding: .2rem;}
+}
+    
+    .user-navbar{order: 3;
+    }
+}
+

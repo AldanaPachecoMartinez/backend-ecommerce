@@ -22,7 +22,7 @@ const ProductSchema = new Schema({
     category:{ type:String, required:true },
     stock:{ type:Number, default:0 },
     favorite: {type:Boolean,default:false},
-    createdAt:{type:Date,default: Date.now()}
+    createdAt:{type:Date,default: Date.now}
 })
 
 module.exports = mongoose.model('Product', ProductSchema)

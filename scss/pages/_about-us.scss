@@ -1,0 +1,255 @@
+.main-about{display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+
+        &__second-title{font-family: "Libre Baskerville", serif;
+        font-size: 1.2rem;
+        margin-top: 3rem;
+        color: $color-text-light}
+
+        .btn-home-aboutus{
+            margin-top: 3rem;
+        }
+    }
+
+.container {margin-top: 1rem;
+    width: 85%;
+    height: 50vh;
+	border-radius: 20px;
+	position: relative;
+	-webkit-transition: 1.5s ease-in-out;
+	transition: 1.5s ease-in-out;
+	transform-style: preserve-3d;
+    -webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-perspective: 1000px;
+	perspective: 1000px;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	position: relative;
+	font-family: "Hind", sans-serif;
+    font-size: 1.2rem;
+}
+
+.side {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	padding: 1rem 1.8rem;
+	color: #fff;
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+	border-radius: 20px;
+    &::-webkit-scrollbar {
+        width: 5px;
+        border-radius: 100px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+        border-radius: 100px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+    background: #d8d8d8;
+    border-radius: 100px;
+    }
+}
+.content {
+	transform: translatez(70px) scale(0.8);
+	line-height: 1.3em;
+}
+.content h1 {
+	position: relative;
+    font-size: 1.7rem;
+}
+.content p {
+	margin-top: 2.5rem;
+	line-height: 2em;
+}
+.content h1:before {
+	content: "";
+	position: absolute;
+	bottom: -15px;
+	height: 1.5px;
+	background-color: rgb(157, 157, 157);
+	width: 70px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.front {
+	z-index: 2;
+	background-size: cover;
+	background-image: url(/assets/images/bg-about.jpg);
+}
+.back {
+	background-color: #333;
+	transform: rotateY(180deg);
+	z-index: 0;
+	background-image: url(/assets/images/bg-about-back.jpeg);
+    background-size: cover;
+    font-size: 1.3rem;
+    overflow: hidden;
+}
+
+.back h1{
+    padding-top: 1.5rem;}
+
+.container:hover {
+	-webkit-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.back h1 {
+	margin: 0;
+}
+
+.valoracion {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: .9rem .5rem 1.3rem;  
+}
+.valoracion button {
+    background-color: initial;
+    border: 0;
+    color: rgb(93, 93, 93);
+    transition: 1s all;
+    font-size: 1.5rem;
+    
+}
+.valoracion button:hover {
+    cursor: pointer;
+    color: var(white);
+    transform: rotate(360deg);
+}
+.valoracion button:nth-child(1):hover ~ button {
+    color: $color-text-light-btn;
+    transform: rotate(360deg);
+}
+.valoracion button:nth-child(2):hover ~ button {
+    color: $color-text-light-btn;
+    transform: rotate(360deg);
+}
+.valoracion button:nth-child(3):hover ~ button {
+    color: $color-text-light-btn;
+    transform: rotate(360deg);
+}
+.valoracion button:nth-child(4):hover ~ button {
+    color: $color-text-light-btn;
+    transform: rotate(360deg);
+}
+.valoracion button:nth-child(5):hover ~ button {
+    color: $color-text-light-btn;
+    transform: rotate(360deg);
+}
+
+@media (min-width:600px) and (max-width: 999px) {
+    .container{width: 65%;
+        height: 45vh;}
+
+    .content {margin-top: .5rem;}
+
+    .side{
+        overflow: auto;
+        padding: 0px;
+        display: grid;
+        align-content: center;
+        font-size: 1.5rem;}
+
+    .back{background-size: cover;
+    font-size: 1.5rem;
+    }
+
+    .main-about__second-title {margin-top: 3.5rem;}
+}
+
+@media (min-width:1000px) and (max-width:1599px) {
+    .container{
+        width: 50%;
+        height: 45vh;
+        margin: 1rem;}
+
+    .content{font-size: 1.5rem;
+}
+    .side{
+    padding: 0px;
+    display: grid;
+    align-content: center;}
+
+    .front{background-position: center;}
+
+    .contact-footer{margin-top: 4rem;}
+}
+
+@media screen and (max-height: 800px) {
+    .side{overflow: auto;
+    }
+}
+
+
+@media (min-width: 360px) and (max-width: 599px) {
+    .container{
+    width: 95%;
+    min-height: 45vh;
+    margin: 2rem .3rem;}
+
+    .content{font-size: 1.4rem;}
+
+    .main-about__second-title {margin: 1rem .6rem;}
+
+    .valoracion button{font-size: 1.1rem;}
+
+    .front{background-position: center;
+    overflow: auto;}
+
+    .side{
+        overflow: auto;
+        padding: 0px;
+        display: grid;
+        align-content: center;}
+
+    .contact-footer{
+        margin-top: 1rem !important;
+    }
+
+
+}
+
+@media screen and (max-width: 280px) {
+    .container{
+        width: 95%;
+        min-height: 65vh;
+        margin: 2rem .3rem;
+        font-size: 1.4rem;}
+
+        .side{
+            overflow: auto;
+            padding: 0px;
+            display: grid;
+            align-content: center;
+            }
+}
+
+@media screen and (min-width:1600px) {
+    .container{
+        width: 40%;
+        height: 37vh;
+        margin: 2rem;}
+
+    .content{
+        font-size: 1.8rem;
+
+        .side{
+            padding: 0px;
+            display: grid;
+            align-content: center;
+            }
+    }
+}

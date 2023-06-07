@@ -1,0 +1,101 @@
+
+.profile{
+    &__item{
+        &:not(:first-child){background-color: $color-bg-secondary-light;
+        border-radius: 10px;
+        padding: .5rem;
+        text-align: center;
+        }
+
+        &:first-child{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &--email{
+            margin: 0 !important;
+        }
+
+    }
+
+    &__img{
+        width: 200px;
+        height: 200px;
+        margin-bottom: 1rem;
+        border-radius: 1000px;
+        object-fit: cover;
+    }
+
+    &__input{
+        border: none !important;
+        text-align: center;
+        &::-webkit-input-placeholder { 
+            font-style: italic;
+            font-size: .8rem;
+        }
+    }
+
+    &__gender{
+        justify-content: center;
+    }
+
+    &__encabezado{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.input-name{
+text-transform: uppercase;
+font-weight: 700;
+font-size: 1.5rem;
+height: 25px;
+    &:hover{
+        border-bottom: 1.2px solid rgb(129, 129, 129) !important;
+    }
+    &:focus{
+        border-bottom: 1.2px solid rgb(129, 129, 129) !important;
+    }
+}
+
+.input-email{margin-top: .3rem;
+    &:hover{
+        border-bottom: 1.2px solid rgb(129, 129, 129) !important;
+    }
+    &:focus{
+        border-bottom: 1.2px solid rgb(129, 129, 129) !important;
+    }
+}
+
+.submit-btn-container{
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0 .8rem;
+}
+.submit-btn-profile{
+    padding: .8rem;
+    background-color: transparent;
+    border: none;
+    border-top: 1px solid $color-text-light;
+    border-bottom: 1px solid $color-text-light;
+    color: $color-text-light;
+    font-size: 1.05rem;
+    font-weight: 500;
+    cursor: pointer;
+        &:hover{
+            transform: scale(1.1);
+            transition: .3s ease-in;
+        }
+}
+
+@media screen and (min-width:1600px) {
+    #profile-container{
+        width: 40% !important;
+    }
+
+    .input-name{
+        width: 400px !important;
+    }
+}

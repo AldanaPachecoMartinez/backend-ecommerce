@@ -1,0 +1,173 @@
+
+.formular-charge{
+    padding: .7rem 1rem;
+    background-color: transparent;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $color-text-light;
+    border: 2px solid $color-text-light;
+    border-radius: 15px;
+    margin:  1.5rem 0;
+    font-size: 1rem;
+
+        &:hover{
+            transform: scale(1.1);
+            transition: all .2s ease-out;
+        }
+}
+
+.form-users{
+    visibility: hidden;
+    position: absolute;
+}
+.form-users.visible{
+    visibility: visible;
+    background-color: rgb(255, 255, 255,98%);
+    padding: 1.4rem 1rem .5rem;
+    transition:all .3s ease-in-out;
+    text-align: center;
+    width: 35%;
+    font-family: "Hind", sans-serif;
+    border-radius: 15px;
+    top: 2%;
+    z-index: 200;
+    box-shadow: 0px 0px 27px -5px lightgray;
+    margin: .5rem .8rem;
+}
+
+
+#users-list{
+    background-color: rgba(255, 255, 255, 0.74);
+    max-width: 100vw;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 1px 1px 60px -38px grey;
+    justify-content: center;
+    margin-top: 1rem;
+    width: 95%;
+
+    &::-webkit-scrollbar {
+        height: 10px;
+        border-radius: 100px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+        border-radius: 100px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+    background: #d8d8d8;
+    border-radius: 100px;
+    }
+}
+
+.table-users-main{
+    border-collapse: collapse;
+}
+
+.table-users-main thead {
+    background-color: rgb(206, 206, 206, 80%);
+    text-transform: uppercase;
+    font-weight: 600;
+    
+}
+
+.table-users-main th, .table-users-main td {
+    border: 2px solid rgb(193, 193, 193, 50%);
+    
+}
+
+.table-users-main tr td:not(:first-child) {
+    padding: .5rem;
+}
+
+#users-rows tr {
+
+&:hover{
+    background-color: rgb(224, 224, 224, 30%);
+    box-shadow: inset 8px -5px 1px -5px rgb(155, 155, 155);
+}
+}
+
+.user__action-btn{
+    background-color: transparent;
+    border: none;
+    font-size: 1.1rem;
+    margin: .3rem;
+    cursor: pointer;
+}
+.role-selector{
+    border: none;
+    border-bottom: 2px solid $color-text-light;
+    margin: .5rem;
+    width: 60%;
+}
+
+#users-search-input{
+    background-color: transparent;
+    outline: none;
+    border:none ;
+    border-bottom: 2px solid $color-text-light;
+    padding: .5rem .4rem .3rem;
+    font-size: 1rem;
+    margin-right: -4px;
+    width: 60%;
+}
+
+#search-users{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    margin: .5rem;
+}
+
+#btn-search-users{
+    padding: .3rem;
+    border: none;
+    border-bottom: 2px solid $color-text-light;
+    font-size: .9rem;
+    text-transform: uppercase;
+    color: $color-table;
+    font-style: italic;
+    cursor: pointer;
+}
+
+@media (min-width:360px) and (max-width: 599px){
+    #role-selector{
+        width: 100%;
+    }
+    .form-users.visible{
+        width: 80%;
+        top: 15%;
+    }
+    .input-box{
+        margin-top: 1.2rem !important;
+    }
+    .container-btns-fp {
+        margin: 1.2rem 0 .7rem !important;
+    }
+}
+
+@media (min-width:600px) and (max-width: 1499px) {
+    .form-users.visible{
+        width: 55%;
+        top: 5%;
+    }
+}
+
+@media screen and (min-width:1500px) {
+    .form-users.visible{
+        width: 25%;
+        top: 5%;
+    }
+}
+
+@media screen and (max-width: 359px) {
+    .form-users.visible{
+        width: 90%;
+        top: 5%;
+    }
+}

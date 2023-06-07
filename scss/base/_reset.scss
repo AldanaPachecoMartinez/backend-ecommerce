@@ -1,0 +1,14 @@
+*,
+*::before,
+*::after{margin: 0;
+padding: 0;
+box-sizing: border-box;}
+
+a{text-decoration: none;
+display: inline-block;}
+
+html{font-size: 12px;}
+
+@media  screen and (min-width: 600px) {
+    html{font-size: 16px;}
+}

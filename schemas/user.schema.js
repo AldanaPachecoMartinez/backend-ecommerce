@@ -35,7 +35,19 @@ const UserSchema = new Schema({
     age: { type: Number, min: 16, max: 120 },
     image:{ type:String },
     createdAt:{ type:Date, default: Date.now() },
-    updatedAt: {type:Date, default: Date.now()}
+    updatedAt: {type:Date, default: Date.now()},
+    editable: { type: Boolean, default: true },
 })
+
+UserSchema.pre('findOneAndUpdate', async function(next){
+    const docToUpdate = await this.model.findOne(this.getQuery());
+
+    if (docToUpdate && docToUpdate.editable === false) {
+    const error = new Error('No se permite modificar este documento.');
+    return next(error);
+    }
+  
+    next();
+});
 
 module.exports = mongoose.model('User', UserSchema)

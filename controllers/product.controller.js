@@ -108,10 +108,35 @@ async function getProductById(req,res){
     }
 }
 
+async function getProductsInOrder(req,res){
+    try {
+        let foundedProducts=[]
+        const productsArray = req.body.products;
+        for (let i = 0; i < productsArray.length; i++) {
+            const el = productsArray[i];
+            const product = await Product.findById(el.product,
+                {images:0,resume:0,description:0,favorite:0,createdAt:0});
+            if(product){
+                foundedProducts.push(product)
+            }    
+            
+        }
+
+        if(foundedProducts <1) return responseCreator(res,404,`No se encontraron productos.`, false)
+
+        return responseCreator(res, 200, `Producto/s de la orden encontrado/s correctamente`,true, {foundedProducts});
+
+    } catch (error) {
+        console.log(error);
+        return responseCreator(res,400,`No se encontraron los productos de la orden`, false)
+    }
+}
+
 module.exports = {
     getProducts,
     addProducts,
     deleteProducts,
     updateProducts,
-    getProductById
+    getProductById,
+    getProductsInOrder
 }

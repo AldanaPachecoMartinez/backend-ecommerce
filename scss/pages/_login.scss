@@ -1,0 +1,128 @@
+.login-body{
+    height: 100vh;
+
+.login-main{display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+
+    .login-title{
+        width: 95%;
+        margin: 1.2rem 0;
+    }
+    
+    .login-form{
+        padding: 2.2rem;
+        background-image: url("/assets/images/bg-login.jpg");
+        background-size:cover ;
+    }
+
+    .login-item{
+        margin-top: 1.2rem;
+    }
+
+    .forgot-password{
+        margin: 1rem 0;
+    
+            &__link{
+            color: $color-table;
+            font-weight: 600;
+                &:visited{
+                    color: $color-table
+                }
+    
+                &:hover{
+                    transform: scale(0.9);
+                    transition: .2s ease-in-out;
+                }
+            }
+    }
+    .btns-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    .btns-gral{
+            width: 70%;
+            margin: .8rem;
+            padding: .8rem;
+            border-radius: 20px;
+            border: none;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+
+            &:hover{
+                transform: scale(1.1);
+                transition: all .2s ease-in;
+                box-shadow: 6px 2px 19px -3px rgb(155 155 155 / 50%);
+            }
+
+            .icon-login{margin-right: .5rem;}
+        }
+        
+        &__login{
+            background-color: rgba(255, 255, 255, 70%);
+            color: $color-table;
+        }
+
+        &__fb{background-color: rgba(144, 144, 144, 0.7);
+        color: whitesmoke;
+        }
+
+        &__google{background-color: rgba(144, 144, 144, 0.7);
+            color: whitesmoke;
+        }
+
+        &__apple{background-color: rgba(144, 144, 144, 0.7);
+            color: whitesmoke;
+        }
+    }
+
+    .btn-home-login{
+        margin-top: 5rem;
+    }
+}
+
+}
+
+@media (min-width:360px) and (max-width:599px){
+    .btn-home-login{
+        margin-top: 1.5rem !important;
+    }
+
+    .login-form{margin: .5rem !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem !important;}
+
+    .login-item{
+        margin: 1rem 0 !important;
+        width: 80%;
+    }
+
+
+    .btns-gral {
+        width: 85% !important;
+        font-size: .9rem;
+    }
+
+    .forgot-password{
+        margin: 1rem 0 !important;
+    }
+}
+
+@media screen and (min-width:600px) {
+    .btn-home-login{
+        margin-top: 2.5rem !important;
+    }
+
+    .login-form{
+        margin-top: 3rem !important;
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+}

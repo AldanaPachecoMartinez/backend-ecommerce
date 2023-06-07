@@ -1,0 +1,155 @@
+.alert-dialog {
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    box-shadow: 0 5px 30px 0 rgb(0 0 0 / 10%);
+    position: fixed;
+    z-index: 500;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: $color-text-light;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility linear .5s, opacity linear .5s;
+    &.show {
+        visibility: visible;
+        opacity: 1;
+        background: rgb(255 255 255 / 30%);
+        backdrop-filter: blur(20px);
+    }
+
+}
+
+.alert-confirm {
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    box-shadow: 0 5px 30px 0 rgb(0 0 0 / 10%);
+    position: absolute;
+    z-index: 5;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: $color-text-light;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility linear .5s, opacity linear .5s;
+    &.visible {
+        visibility: visible;
+        opacity: 1;
+        background: rgb(255 255 255 / 30%);
+        backdrop-filter: blur(20px);
+        z-index: 15;
+    }
+
+}
+
+.alert-confirm h1 {
+    font-size: 1.5rem;
+}
+
+.btn-aceptar{
+    margin-left: 1rem;
+    padding: .5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: darkred;
+    border: none;
+    border: 2px solid darkred;
+    border-radius: 20px;
+    background-color: transparent;
+    &:hover{
+        transform: scale(1.1);
+        transition: .2s ease;
+    }
+}
+
+.btn-cancelar{
+    margin-right: 1rem;
+    padding: .5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgb(94, 94, 94);
+    border: none;
+    border: 2px solid rgb(94, 94, 94);
+    border-radius: 20px;
+    background-color: transparent;
+    &:hover{
+        transform: scale(1.1);
+        transition: .2s ease;
+    }
+}
+.alert-text{
+    font-size: 1.2rem;
+    margin-bottom: .5rem;
+    line-height: 1.7rem;
+}
+
+
+.fa-triangle-exclamation {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+
+.fa-user-check {
+    margin-bottom: 1.1rem;
+    font-size: 2.3rem;
+}
+
+.fa-circle-xmark {
+    color: darkred;
+    font-size: 3rem;
+    margin-bottom: 1.1rem;
+}
+
+
+.fa-circle-exclamation {
+    color: darkorange;
+    font-size: 3rem;
+    margin-bottom: 1.1rem;
+}
+
+
+.alert-text {
+    margin: 1rem;
+}
+@media (min-width:360px) and (max-width:599px){
+    .alert-dialog{
+        width: 75%;
+        bottom: 40%;
+    }
+    .alert-confirm{
+        width: 80%;
+        bottom: 50%;
+
+        .btn-aceptar{
+            margin-top: .7rem;
+        }
+        .btn-cancelar{
+            margin-top: .7rem;
+        }
+    }
+}
+
+@media screen and (max-width: 359px){
+    .alert-confirm{
+        width: 90%;
+        bottom: 50%;
+    
+        .btn-aceptar{
+            margin: .7rem 0 !important;
+        }
+        .btn-cancelar{
+            margin-top: .7rem;
+        }}
+}
+
+@media screen and (min-width: 1500px) {
+    .alert-dialog{
+        width: 25%;}
+}
+

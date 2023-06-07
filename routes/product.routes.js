@@ -8,6 +8,7 @@ const checkUserRole = require('../middlewares/checkRole');
 api.get('/products', productController.getProducts);
 api.get('/products/:id', productController.getProductById);
 
+api.post('/products/order', productController.getProductsInOrder);
 api.post('/products', checkToken , checkUserRole , uploadController.uploadProductImage,productController.addProducts);
 api.post('/products/image/:id', checkToken, checkUserRole, uploadController.uploadProductImage,productController.updateProducts)
 

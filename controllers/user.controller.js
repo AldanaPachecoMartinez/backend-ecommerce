@@ -66,7 +66,8 @@ async function loginUser(req,res) {
         }
         userToLogin.password = undefined;
         const token = await jwt.sign(userToLogin.toJSON(), secret, { expiresIn: '2h'});
-        return responseCreator(res,200,`Login correcto, te redireccionaremos en unos instantes...`,true,{user:userToLogin,token})
+        const expireDate = new Date().getTime() + (2 * 60 * 60 * 1000);
+        return responseCreator(res,200,`Login correcto, te redireccionaremos en unos instantes...`,true,{user:userToLogin,token,expireDate})
 
     } catch (error) {
         console.log(error);

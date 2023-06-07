@@ -1,0 +1,212 @@
+
+.main {background-color: $color-bg-primary-light;
+display: flex;
+flex-direction: column;
+align-items: center;
+flex: 1;
+font-family: "Hind", sans-serif;
+
+.title-container {width: 100%;
+padding: 1.5rem;}
+
+.title {text-align: center;
+padding-bottom: .5rem;
+font-size: 1.5rem;
+color: $color-text;
+text-transform: uppercase;
+font-weight: 20;
+border-bottom: solid 1.5px $color-text-light-btn;
+font-family: "Lora", serif;}
+
+.form {
+background-image: url("/assets/images/bg-register.jpg");
+background-size: cover;
+padding: 2rem;
+margin: 1rem;
+box-shadow: 4px 4px 33px -26px;
+border-radius: 15px;
+}
+
+
+.form-content {color: $color-table;
+    font-weight: 700;
+
+    &__input {width: 20rem;
+padding: .5rem;
+color:$color-table;
+background-color: transparent;
+border-style: none;
+border-bottom: 1.2px solid $color-text ;
+font-size: 1rem;
+
+    &:focus{
+        outline: none;
+    }
+    
+}
+
+&__item:not(:first-child){margin-top: 1.5rem;
+    
+}
+
+
+&__item--sex{display: flex;
+    align-items:center;
+    column-gap: .5rem;
+    margin-top: .6rem;} 
+    
+    
+&__item--tyc{
+        font-style: italic;
+        margin: .5rem 0;
+    }
+    
+&__btn-container{display: flex;
+justify-content: center;}
+
+&__btn-enviar{margin-top: 1.5rem;
+color: $color-text;
+background-color: rgb(255, 255, 255);
+padding: .8rem .7rem;
+border-style: hidden;
+font-family: "Lora", serif;
+font-weight: 0;
+text-transform: uppercase;
+background: transparent;
+border-top: 1px solid $color-text;
+border-bottom: 1px solid $color-text;
+
+    &:hover{
+        transform: scale(1.1);
+        transition: .3s ease-in;
+    }
+} 
+
+} 
+
+.fa-arrow-right{
+    margin-right: .5rem;
+}
+
+.have-account{
+    padding: 2rem .5rem .7rem;
+    font-family: "Inter", sans-serif;
+    font-size: 1.1rem;
+    color: $color-text;
+
+    &__link{
+        color: $color-text-light-btn;
+        font-weight: 600;
+
+        &:visited{
+            color: $color-text-light-btn;
+            
+        }
+
+        &:hover{
+            transform: scale(0.9);
+            transition: .2s ease-in;
+        }
+    }
+}
+
+}
+
+@media screen and (max-width:280px){
+    .form{
+        width: 90vw;
+    }
+
+    .form-content{
+        width: 70vw;
+
+        &__input{
+            width: 17rem !important;
+        }
+    }
+
+    .have-account{
+        text-align: center;
+        width: 90vw;
+    }
+}
+
+@media (min-width:360px) and (max-width:599px){
+    .form{
+        width: 85vw;
+    }
+    .form-content{
+        width: 100%;
+
+        &__input{
+            width: 100% !important;
+        }
+    }
+
+}
+
+@media (min-width: 1000px) and (max-width: 1599px) {
+    .main-register{
+        padding: .3rem; 
+
+        .title-container{
+            padding: .5rem;
+        }
+
+        .form{
+            margin: .5rem;
+            width: 35%;
+            padding: .5rem 1.8rem 1.2rem;
+
+            .form-content{
+                width: 100%;
+                &__item{
+                    margin-top: 1rem;
+                }
+
+                &__input{
+                    padding: .4rem;
+                    width: 100%;
+                }
+
+            }
+        }
+    }
+
+    .btn-home-register{
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width: 1600px){
+    .main-register{
+        padding: 0;
+
+        .title-container{
+            padding: .8rem;
+        }
+
+        .btn-home-register{
+            margin-top: 0;
+        }
+
+        .have-account{
+            padding: 1rem;
+        }
+    }
+    .form{
+        width: 22vw;
+        font-size: 1.1rem;
+    }
+    .form-content{
+        width: 100%;
+
+        &__input{
+            width: 100% !important;
+        }
+
+        &__btn-enviar{
+            font-size: 1.1rem;
+        }
+    }
+}
