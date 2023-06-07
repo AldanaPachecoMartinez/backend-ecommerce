@@ -11,7 +11,6 @@ const storage = multer.diskStorage({
   filename: (req, file, callback) => {
     const fileExt = file.originalname.split('.').at(-1);
     const newName = `${uuid()}.${fileExt}`;
-    console.log(req.body)
     if(req.body.images){
       let newImage = (typeof(req.body.images)==="string") ? JSON.parse(req.body.images) : req.body.images
       newImage.push(newName)

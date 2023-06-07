@@ -159,8 +159,6 @@ evt.preventDefault()
 let form = document.getElementById('new-order-form')
 await getProductsInOrder(userCart.order)
 
-console.log(form,products)
-
 let productsOrder= products.map(prod=> {
     let quantity = userCart.order.filter(el=>el.product===prod._id)[0]['quantity'] || 0
     return(

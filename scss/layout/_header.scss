@@ -233,3 +233,11 @@ z-index: 15;
     }
 }
 
+@media (min-width:0px) and (max-width:599px) {
+    .menu-user.visible{
+        width: 60% !important;
+        background-color: rgba(210, 210, 210, 0.98);
+    }
+
+}
+

@@ -15,7 +15,6 @@ const registerBtn = document.getElementById('registerSubmit');
         const dataBody = { fullName:fullName.value, email: email.value, password: password.value,age:age.value,bornDate:bornDate.value,role};
 
         const resp = await axios.post(`${URL}/users`, dataBody );
-        console.log(resp)
         const {msg,status} = resp.data;
 
         if(resp.status===201){

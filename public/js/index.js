@@ -135,7 +135,6 @@ function addToCart(product){
             quantity:1
         })
     }
-    console.log(userCart)
     
     window.localStorage.setItem('cart',JSON.stringify(userCart))
     renderOrder(userCart)

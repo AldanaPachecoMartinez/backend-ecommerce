@@ -227,7 +227,7 @@ addInput.addEventListener('change', async function(){
             
         })
         const newForm = res.data.newData
-        console.log(res)
+
         printProducts()
         handleEdit({...newForm,_id:form._id})
     } catch (error) {
