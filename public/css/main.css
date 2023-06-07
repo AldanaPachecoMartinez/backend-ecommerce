@@ -3055,23 +3055,23 @@ body {
     flex: 1;
     align-items: center;
     position: relative;
-    height: 75vh;
-    max-height: 75vh;
+    height: 100vh;
+    max-height: 100vh;
     justify-content: center;
   }
   .container-description {
     width: 100%;
-    max-height: 50vh;
-    height: 40vh;
+    max-height: 40vh;
+    min-height: 30vh;
     overflow: auto;
   }
-  .container-description__btn-comprar {
+  -webkit-overflow-scrolling:touch .container-description__btn-comprar {
     width: 50%;
     margin-top: 0.8rem !important;
   }
   .container-dtl__carrousel {
     max-height: 40vh;
-    height: 40vh;
+    min-height: 40vh;
     width: 100%;
     overflow: auto;
   }
