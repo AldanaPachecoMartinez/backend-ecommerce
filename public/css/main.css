@@ -300,7 +300,7 @@ html {
 .alert-dialog.show {
   visibility: visible;
   opacity: 1;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(20px);
 }
 
@@ -400,6 +400,9 @@ html {
   .alert-dialog {
     width: 75%;
     bottom: 40%;
+  }
+  .alert-dialog.show {
+    background: rgba(255, 255, 255, 0.9);
   }
   .alert-confirm {
     width: 80%;
@@ -793,6 +796,8 @@ html {
   .main-orders-container.visible {
     width: 70vw;
     padding: 0.5rem;
+    background-color: rgba(235, 235, 235, 0.95);
+    padding-bottom: 4vh;
   }
   .order-item-price {
     margin: 0.3rem;
@@ -3050,12 +3055,13 @@ body {
     flex: 1;
     align-items: center;
     position: relative;
+    height: 75vh;
     max-height: 75vh;
     justify-content: center;
   }
   .container-description {
     width: 100%;
-    max-height: 55%;
+    max-height: 50vh;
     overflow: auto;
   }
   .container-description__btn-comprar {
@@ -3063,11 +3069,13 @@ body {
     margin-top: 0.8rem !important;
   }
   .container-dtl__carrousel {
-    max-height: 40%;
+    max-height: 40vh;
     width: 100%;
+    overflow: hidden;
   }
   .container-dtl__imgs {
     object-fit: cover;
+    object-position: top;
   }
   .detalle-dtl {
     font-size: 1.2rem;
