@@ -1,5 +1,5 @@
 let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-const URL = 'http://localhost:8000'
+const URL = 'https://decotienda.onrender.com'
 
 document.addEventListener('DOMContentLoaded', renderizarHeader('header'))
 document.addEventListener('DOMContentLoaded', renderizarFooter('footer'));
