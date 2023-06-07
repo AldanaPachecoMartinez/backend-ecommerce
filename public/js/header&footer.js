@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', renderizarFooter('footer'));
 
 function renderizarHeader(id){
     document.getElementById(id).innerHTML = ` <nav class="navbar">
-    <a href="/index.html" class="navbar__nav-link">
+    <a href="/" class="navbar__nav-link">
         <img src="/assets/images/logo-marca-large.png" alt="Logo del E-commerce"  class="navbar__logo">
     </a>
 
