@@ -773,6 +773,10 @@ html {
   background: transparent;
   border: none;
   font-size: 1.5rem;
+  color: black;
+}
+.btn-close-checkout:visited {
+  color: black;
 }
 .btn-close-checkout:hover {
   transform: scale(1.1);
@@ -797,7 +801,7 @@ html {
     width: 80vw;
     padding: 0.5rem;
     background-color: rgba(235, 235, 235, 0.95);
-    padding-bottom: 4vh;
+    padding-bottom: 8vh;
   }
   .thumb-order {
     width: 100px;

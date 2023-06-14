@@ -357,6 +357,10 @@ row-gap: 5px;
     background: transparent;
     border: none;
     font-size: 1.5rem;
+    color: black;
+    &:visited {
+        color: black;
+    }
     &:hover{
         transform: scale(1.1);
     }
@@ -382,7 +386,7 @@ row-gap: 5px;
         width: 80vw;
         padding: .5rem;
         background-color: rgb(235, 235, 235, 95%);
-        padding-bottom: 4vh;
+        padding-bottom: 8vh;
     }
 
     .thumb-order{
