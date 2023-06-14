@@ -68,6 +68,7 @@ function createLinkElement(path,text) {
 
 function logout() {
     window.localStorage.removeItem('currentUser');
+    currentUser=null
     renderHeaderLinks(); 
     window.location.href='/'  
 }
