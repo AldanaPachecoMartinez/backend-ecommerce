@@ -3094,7 +3094,8 @@ body {
   }
   .container-description {
     width: 100%;
-    min-height: 50vh;
+    min-height: 30vh;
+    max-height: 40vh;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
   }
@@ -3104,14 +3105,14 @@ body {
     margin-top: 0.5rem !important;
   }
   .container-dtl__carrousel {
-    height: 50vh;
+    min-height: 40vh;
+    max-height: 40vh;
     width: 100%;
     overflow: auto;
   }
   .container-dtl__imgs {
     object-fit: cover;
     object-position: top;
-    height: 50vh;
   }
   .title-dtl {
     font-size: 1.7rem;
@@ -3129,7 +3130,7 @@ body {
     margin-top: 0.5rem !important;
   }
 }
-@media screen and (max-width: 379px) {
+@media screen and (max-width: 378px) {
   .main-home-detail {
     padding: 0;
   }
