@@ -91,6 +91,13 @@ async function renderOrder(userCart){
     </div>
     `
 
+    if(totalAmount === 0) {
+        orderHeader =     `<div class='order-header-container'>
+        <i class="fa-solid fa-xmark fa-xl" onclick='closeOrder()'></i>
+        <p class= "text-order">Aún no ha seleccionado ningun producto</p>
+        </div>`
+    }
+
 
     mainOrders.innerHTML= orderHeader + '<div class="order-products-container">'+ productsInOrder.join('') + '</div>' + orderFooter 
 }

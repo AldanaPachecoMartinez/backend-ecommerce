@@ -98,6 +98,10 @@
     font-size: 1.1rem;
     margin: .3rem;
     cursor: pointer;
+    color: black;
+    &:visited{
+        color: black;
+    }
 }
 .role-selector{
     border: none;

@@ -21,7 +21,7 @@ gap: .5rem;}
 
 &__company-name{color: $color-text-light;}
 
-&__contact-icon{font-size: 1.75rem;
+&__contact-icon{font-size: 1.3rem; 
 
 &--facebook{color:#1948c1 ;}
 
@@ -30,7 +30,7 @@ gap: .5rem;}
 &--linkedin{color: #0a66c2;}
     }
 
-&__contact-icon{font-size: 1.3rem ;}
+
 
 }
 
@@ -38,4 +38,11 @@ gap: .5rem;}
 @media screen and (min-width: 600px) {
     .footer{flex-direction: row;
     justify-content: space-between;}
+}
+
+@media (min-width:0px) and (max-width:599px){
+    .footer__social-media-container {
+        display: flex;
+    }
+
 }

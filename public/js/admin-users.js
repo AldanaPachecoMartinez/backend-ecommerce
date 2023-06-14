@@ -277,8 +277,13 @@ function cleanSearch(){
 
 function formatearFecha1(fechaIn) {
     let fechaFormateada;
-    let fecha = new Date(fechaIn)
-    let dia = fecha.getDate()+1;
+    let fecha = new Date(fechaIn);
+    let dia;
+    if(dia === 31) {
+        dia = fecha.getDate();
+    }else {
+        dia = fecha.getDate()+1;
+    }
     let mes = fecha.getMonth() + 1; 
     let mesFormateado = mes < 10 ? '0' + mes : mes;
     let diaFormateado = dia < 10 ? '0' + dia : dia;

@@ -1,5 +1,5 @@
 let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-const URL = 'https://decotienda.onrender.com'
+const URL = 'http://localhost:9000'
 
 document.addEventListener('DOMContentLoaded', renderizarHeader('header'))
 document.addEventListener('DOMContentLoaded', renderizarFooter('footer'));
@@ -37,8 +37,7 @@ function renderizarHeader(id){
             <a href="/about-us" class="navbar__nav-link">Nosotros</a></li>
         <li class="navbar__nav-item">
             <a href="/register" class="navbar__nav-link">Registrarse</a></li>
-        <li class="navbar__nav-item" id="sign-in">
-                <a href="/login" class="navbar__nav-link">Login</a></li>
+        <li class="navbar__nav-item" id="sign-in"></li>
     </ul>
 </nav>
 

@@ -379,12 +379,27 @@ row-gap: 5px;
 
 @media (min-width: 380px) and (max-width: 539px){
     .main-orders-container.visible{
-        width: 70vw;
+        width: 80vw;
         padding: .5rem;
         background-color: rgb(235, 235, 235, 95%);
         padding-bottom: 4vh;
+    }
 
+    .thumb-order{
+        width: 100px;
+        height: 75px;
+        padding: 0px 0px 8px 1.2rem;
+    }
 
+    .order-item-checkout{
+        width: 96%;
+        height: 62px;
+        padding-right: 2rem;
+    }
+
+    .adress-send{
+        width: 75%;
+        margin: 1.2rem;
     }
 
     .order-item-price{
@@ -392,7 +407,8 @@ row-gap: 5px;
     }
 
     .order-item-name{
-        margin-bottom: .3rem;
+        margin: 0 0 0.3rem 0.5rem;
+        overflow-x: auto;
     }
     .order-img-container{
         width: 25%;

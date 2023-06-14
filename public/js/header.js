@@ -67,9 +67,9 @@ function createLinkElement(path,text) {
 }
 
 function logout() {
-    window.location.href='/'  
-    localStorage.removeItem('currentUser');
+    window.localStorage.removeItem('currentUser');
     renderHeaderLinks(); 
+    window.location.href='/'  
 }
 
 let menu = document.querySelector('.menu-user');
